@@ -123,7 +123,11 @@ header {
       width: 200px;
    }
 }
-
+.items {
+   flex: 1;
+   overflow: auto;
+   margin-bottom: 40px;
+}
 .cartTotalBlock {
    ul {
       display: block;
@@ -133,7 +137,6 @@ header {
          display: flex;
          align-items: flex-end;
          margin-bottom: 20px;
-
          div {
             flex: 1;
             height: 1px;
@@ -143,6 +146,16 @@ header {
             margin: 0 7px;
          }
       }
+   }
+   button {
+      width: 100%;
+      height: 55px;
+      background: #9dd558;
+      border-radius: 18px;
+      border: none;
+      color: white;
+      font-size: 16px;
+      font-weight: 600;
    }
 
    .greenButton {
@@ -210,9 +223,9 @@ header {
 
    .cartItemImg {
       height: 70px;
-      width: 70px;
+      width: 180px;
       background-size: contain;
-      background-position: 0 -3px;
+      background-position: 0 -10px;
       background-repeat: no-repeat;
       margin-right: 20px;
    }
@@ -249,15 +262,6 @@ header {
    }
 }
 
-.drawerBlock {
-   position: absolute;
-   width: 385px;
-   height: 100vh;
-   right: 0;
-   background: #ffffff;
-   box-shadow: -10px 4px 24px rgba(0, 0, 0, 0.1);
-}
-
 .overlay {
    position: absolute;
    width: 100%;
@@ -266,4 +270,20 @@ header {
    left: 0;
    z-index: 1;
    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.drawer {
+   position: absolute;
+   width: 420px;
+   height: 100vh;
+   right: 0;
+   background: #ffffff;
+   box-shadow: -10px 4px 24px rgba(0, 0, 0, 0.1);
+   padding: 30px;
+   display: flex;
+   flex-direction: column;
+
+   h2 {
+      margin: 0;
+   }
 }
