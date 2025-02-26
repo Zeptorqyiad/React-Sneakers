@@ -1,24 +1,23 @@
 import React from 'react'
 
-const Card = () => {
+const Card = ({ title, price, imageUrl }) => {
+   const onCLickButton = () => {
+      alert(price)
+   }
+
    return (
-      <div className="card">
+      <div className="card mb-20">
          <div className="favorite">
             <img src="/assets/image/unliked.svg" alt="HeartUnlinked" />
          </div>
-         <img
-            width={133}
-            height={112}
-            src="/assets/sneakers/1.jpg"
-            alt="Sneakers"
-         />
-         <h5>Мужские Кроссовки Nike Blazer Mid Suede</h5>
+         <img width={133} height={112} src={imageUrl} alt="Sneakers" />
+         <h5>{title}</h5>
          <div className="d-flex justify-between align-center">
             <div className="d-flex flex-column">
                <span>Цена:</span>
-               <b>12 999 руб.</b>
+               <b>{price} руб.</b>
             </div>
-            <button className="button">
+            <button onClick={onCLickButton} className="button">
                <img
                   width={11}
                   height={11}
