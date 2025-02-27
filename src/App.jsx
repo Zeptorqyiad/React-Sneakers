@@ -1,51 +1,23 @@
 import React from 'react'
+import axios from 'axios'
 
 import { Card, Header, Drawer } from './components/index'
 
-const arr = [
-   {
-      title: 'Мужские Кроссовки Nike Blazer Mid Suede',
-      price: '12999',
-      imageUrl: '/assets/sneakers/1.jpg',
-   },
-   {
-      title: 'Мужские Кроссовки Nike Air Max 270',
-      price: '12999',
-      imageUrl: '/assets/sneakers/2.jpg',
-   },
-   {
-      title: 'Мужские Кроссовки Nike Blazer Mid Suede',
-      price: '8499',
-      imageUrl: '/assets/sneakers/3.jpg',
-   },
-   {
-      title: 'Кроссовки Puma X Aka Boku Future Rider',
-      price: '8999',
-      imageUrl: '/assets/sneakers/4.jpg',
-   },
-   {
-      title: 'Мужские Кроссовки Under Armour Curry 8',
-      price: '15199',
-      imageUrl: '/assets/sneakers/5.jpg',
-   },
-   {
-      title: 'Мужские Кроссовки Nike Kyrie 7',
-      price: '11299',
-      imageUrl: '/assets/sneakers/6.jpg',
-   },
-   {
-      title: 'Мужские Кроссовки Jordan Air Jordan 11',
-      price: '10799',
-      imageUrl: '/assets/sneakers/7.jpg',
-   },
-   {
-      title: 'Мужские Кроссовки Nike LeBron XVIII',
-      price: '16499',
-      imageUrl: '/assets/sneakers/8.jpg',
-   },
-]
-
 const App = () => {
+   const [items, setItems] = React.useState([])
+
+   React.useEffect(() => {
+      try {
+         axios
+            .get(`https://67c0b0e9b9d02a9f224aaa4e.mockapi.io/items`)
+            .then((response) => {
+               setItems(response.data)
+            })
+      } catch (error) {
+         return console.log(error)
+      }
+   }, [])
+
    return (
       <div className="wrapper clear">
          <Drawer />
@@ -59,9 +31,11 @@ const App = () => {
                </div>
             </div>
             <div className="d-flex" style={{ flexWrap: 'wrap' }}>
-               {arr.map((obj, index) => (
+               {items.map((obj, index) => (
                   <Card
                      key={`${obj}_${index}`}
+                     onClickFavorite={() => console.log('Добавили в закладки')}
+                     onClickPlus={() => console.log('Нажали на плюс')}
                      {...obj}
                   />
                ))}
