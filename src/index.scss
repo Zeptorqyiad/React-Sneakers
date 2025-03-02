@@ -35,8 +35,6 @@ header {
    }
 }
 
-
-
 .cartEmpty {
    text-align: center;
 
@@ -71,13 +69,21 @@ header {
    padding: 0 15px;
    position: relative;
 
+   .clearInput {
+      position: absolute;
+      top: 13px;
+      right: 15px;
+      width: 18px;
+      height: 18px;
+   }
+
    .clear {
       position: absolute;
       right: 0;
       width: 18px;
       height: 18px;
       top: 14px;
-      right: 15px;
+      right: 14px;
    }
 
    input {
@@ -169,7 +175,6 @@ header {
       background: darken(#9dd558, 5%);
    }
 }
-
 
 .cartItem {
    border: 1px solid #f3f3f3;
